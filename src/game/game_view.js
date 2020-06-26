@@ -10,6 +10,7 @@ class GameView {
   start() {
     const that = this;
     this.bindKeyHandlers();
+    that.game.startGame();
     window.requestAnimationFrame(() => {
       that.game.renderGame(that.game)
     })
@@ -28,6 +29,9 @@ class GameView {
     });
     key("d", function () {
       that.game.launcher.rotate(3.5);
+    });
+    key("space", function () {
+      that.game.launcher.shoot(that.game);
     });
   }
 }

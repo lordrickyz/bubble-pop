@@ -1,7 +1,7 @@
 import Board from "./board";
 import Launcher from "./launcher";
 import Bubble from "./bubbles";
-import { Levels, bubbleColors } from "./levels";
+import { Levels, bubbleColors, levelClone } from "./levels";
 
 const marginBottom = 40;
 const COLORS = ["#0000ff", "#00ff00", "#ffff00", "#ff8000", "#ff0000"];
@@ -41,10 +41,12 @@ class Game {
 
   gameOver() {
     window.alert("YOU LOST -> GAME OVER!");
+    this.restartGame();
   }
 
   gameWin() {
     window.alert("YOU WIN")
+    this.restartGame();
   }
   
 
@@ -55,14 +57,13 @@ class Game {
     }
     this.colorsLeft = bubbleColors.slice(0);
     this.level += 1;
-    let currentLevelLength = Levels[this.level].length;
+    // let currentLevelLength = Levels[this.level].length;
     this.renderLevel();
     document.getElementById("level").innerHTML = (this.level + 1);
   }
 
   restartGame() {
-    Levels[this.level].splice(currentLevelLength, levels[this.level].length);
-    this.colorsLeft = bubbleColors.slice(0);
+    Levels.concat(levelClone)
     this.renderLevel();
   }
 

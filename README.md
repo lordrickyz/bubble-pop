@@ -1,5 +1,7 @@
 # Bubble Pop
 
+[Live Site](https://lordrickyz.github.io/bubble-pop/)
+
 ## Background:
 
 Bubble Pop is a clone of a popular 1994 tile-matching arcade puzzle game called [Puzzle Bobble](https://en.wikipedia.org/wiki/Puzzle_Bobble). 

@@ -439,10 +439,12 @@ class Game {
 
   gameOver() {
     window.alert("YOU LOST -> GAME OVER!");
+    this.restartGame();
   }
 
   gameWin() {
     window.alert("YOU WIN")
+    this.restartGame();
   }
   
 
@@ -453,14 +455,13 @@ class Game {
     }
     this.colorsLeft = _levels__WEBPACK_IMPORTED_MODULE_3__["bubbleColors"].slice(0);
     this.level += 1;
-    let currentLevelLength = _levels__WEBPACK_IMPORTED_MODULE_3__["Levels"][this.level].length;
+    // let currentLevelLength = Levels[this.level].length;
     this.renderLevel();
     document.getElementById("level").innerHTML = (this.level + 1);
   }
 
   restartGame() {
-    _levels__WEBPACK_IMPORTED_MODULE_3__["Levels"][this.level].splice(currentLevelLength, levels[this.level].length);
-    this.colorsLeft = _levels__WEBPACK_IMPORTED_MODULE_3__["bubbleColors"].slice(0);
+    _levels__WEBPACK_IMPORTED_MODULE_3__["Levels"].concat(_levels__WEBPACK_IMPORTED_MODULE_3__["levelClone"])
     this.renderLevel();
   }
 
@@ -999,13 +1000,14 @@ class Launcher {
 /*!****************************!*\
   !*** ./src/game/levels.js ***!
   \****************************/
-/*! exports provided: bubbleColors, Levels */
+/*! exports provided: bubbleColors, Levels, levelClone */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bubbleColors", function() { return bubbleColors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Levels", function() { return Levels; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "levelClone", function() { return levelClone; });
 /* harmony import */ var _bubbles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bubbles */ "./src/game/bubbles.js");
 
 
@@ -1076,6 +1078,69 @@ const Levels = [
     new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](330, 30 + rowDistance * 4, yellow),
     new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](450, 30 + rowDistance * 4, green),
   ]
+];
+
+
+const levelClone = [
+  [
+    //1
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](30, 30, red),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](90, 30, red),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](150, 30, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](210, 30, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](270, 30, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](330, 30, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](390, 30, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](450, 30, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](60, 30 + rowDistance, red),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](120, 30 + rowDistance, red),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](180, 30 + rowDistance, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](240, 30 + rowDistance, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](300, 30 + rowDistance, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](360, 30 + rowDistance, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](420, 30 + rowDistance, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](30, 30 + rowDistance * 2, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](90, 30 + rowDistance * 2, orange),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](150, 30 + rowDistance * 2, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](210, 30 + rowDistance * 2, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](270, 30 + rowDistance * 2, red),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](330, 30 + rowDistance * 2, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](390, 30 + rowDistance * 2, orange),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](450, 30 + rowDistance * 2, orange),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](60, 30 + rowDistance * 3, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](120, 30 + rowDistance * 3, orange),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](180, 30 + rowDistance * 3, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](240, 30 + rowDistance * 3, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](300, 30 + rowDistance * 3, red),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](360, 30 + rowDistance * 3, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](420, 30 + rowDistance * 3, orange),
+  ],
+  [
+    //2
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](30, 30, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](90, 30, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](390, 30, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](450, 30, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](120, 30 + rowDistance, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](360, 30 + rowDistance, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](30, 30 + rowDistance * 2, red),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](90, 30 + rowDistance * 2, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](390, 30 + rowDistance * 2, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](450, 30 + rowDistance * 2, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](60, 30 + rowDistance * 3, red),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](120, 30 + rowDistance * 3, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](180, 30 + rowDistance * 3, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](240, 30 + rowDistance * 3, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](300, 30 + rowDistance * 3, orange),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](360, 30 + rowDistance * 3, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](420, 30 + rowDistance * 3, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](30, 30 + rowDistance * 4, red),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](150, 30 + rowDistance * 4, green),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](210, 30 + rowDistance * 4, blue),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](270, 30 + rowDistance * 4, orange),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](330, 30 + rowDistance * 4, yellow),
+    new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](450, 30 + rowDistance * 4, green),
+  ],
 ];
 
 /***/ }),

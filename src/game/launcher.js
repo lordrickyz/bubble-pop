@@ -1,4 +1,4 @@
-import { shootSound } from "./sound";
+// import { shootSound } from "./sound";
 const marginBottom = 40;
 
 class Launcher {
@@ -41,8 +41,9 @@ class Launcher {
   shoot(game) {
     game.newBubble.angle = game.launcher.angle;
     game.newBubble.vel = -25;
-    shootSound.crossOrigin = "anonymous";
-    shootSound.play();
+    // shootSound.crossOrigin = "anonymous";
+    // shootSound.play();
+    document.getElementById("shootBubble").play();
   };
 
 };

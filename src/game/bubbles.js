@@ -1,4 +1,4 @@
-import { popSound } from "./sound";
+// import { popSound } from "./sound";
 
 // [Blue, Green, Yellow, Orange, Red]
 const COLORS = ["#0000ff", "#00ff00", "#ffff00", "#ff8000", "#ff0000"];
@@ -90,8 +90,9 @@ class Bubble {
     bubblesToRemove.forEach((bubble) => {
       let i = game.topBubbles.indexOf(bubble);
       game.topBubbles.splice(i, 1);
-      popSound.crossOrigin = "anonymous";
-      popSound.play();
+      // popSound.crossOrigin = "anonymous";
+      // popSound.play();
+      document.getElementById("popBubble").play();
     });
   }
 

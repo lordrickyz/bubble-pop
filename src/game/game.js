@@ -1,9 +1,8 @@
 import Board from "./board";
 import Launcher from "./launcher";
 import Bubble from "./bubbles";
+import levels from "./levels";
 
-// const now = Date.now();
-// let delta = 0;
 const marginBottom = 40;
 const COLORS = ["#0000ff", "#00ff00", "#ffff00", "#ff8000", "#ff0000"];
 
@@ -13,6 +12,7 @@ class Game {
     this.launcher = new Launcher(this.board);
     this.newBubble = new Bubble();
     this.topBubbles = [];
+    this.level = 0;
   }
 
   renderGame(game) {
@@ -26,7 +26,13 @@ class Game {
     });
   }
 
+  renderLevel() {
+    var currentLevel = this.level;
+    this.topBubbles = levels[currentLevel];
+  }
+
   startGame() {
+    this.renderLevel();
     this.addBubble(this);
   }
 
@@ -57,6 +63,8 @@ class Game {
       randomColor
     );
   }
-};
+
+}
 
 export default Game;
+

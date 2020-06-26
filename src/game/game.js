@@ -1,7 +1,7 @@
 import Board from "./board";
 import Launcher from "./launcher";
 import Bubble from "./bubbles";
-import levels from "./levels";
+import { Levels, bubbleColors } from "./levels";
 
 const marginBottom = 40;
 const COLORS = ["#0000ff", "#00ff00", "#ffff00", "#ff8000", "#ff0000"];
@@ -15,6 +15,8 @@ class Game {
     this.score = 0;
     this.level = 0;
     this.points = 10;
+    this.colorsLeft = bubbleColors.slice(0);
+
   }
 
   renderGame(game) {
@@ -29,8 +31,8 @@ class Game {
   }
 
   renderLevel() {
-    var currentLevel = this.level;
-    this.topBubbles = levels[currentLevel];
+    let currentLevel = this.level;
+    this.topBubbles = Levels[currentLevel];
   }
 
   startGame() {
@@ -40,6 +42,44 @@ class Game {
 
   gameOver() {
     window.alert("YOU LOST -> GAME OVER!");
+  }
+
+  gameWin() {
+    window.alert("YOU WIN")
+  }
+  
+
+  nextLevel() {
+    if (this.level == Levels.length - 1) {
+      this.gameWin()
+      return;
+    }
+    this.colorsLeft = bubbleColors.slice(0);
+    this.level += 1;
+    let currentLevelLength = Levels[this.level].length;
+    this.renderLevel();
+    document.getElementById("level").innerHTML = (this.level + 1);
+  }
+
+  restartGame() {
+    Levels[this.level].splice(currentLevelLength, levels[this.level].length);
+    this.colorsLeft = bubbleColors.slice(0);
+    this.renderLevel();
+  }
+
+  colorToRender(game) {
+    let colorsLeft = [];
+    game.topBubbles.forEach((bubble) => {
+      if (!colorsLeft.includes(bubble.color)) {
+        colorsLeft.push(bubble.color);
+      }
+    })
+
+    for (let i = 0; i < game.colorsLeft.length; i++) {
+      if (!colorsLeft.includes(game.colorsLeft[i])) {
+        game.colorsLeft.splice(i, 1);
+      }
+    };
   }
 
   renderTopBubbles(game) {

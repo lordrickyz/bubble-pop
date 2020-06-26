@@ -12,7 +12,9 @@ class Game {
     this.launcher = new Launcher(this.board);
     this.newBubble = new Bubble();
     this.topBubbles = [];
+    this.score = 0;
     this.level = 0;
+    this.points = 10;
   }
 
   renderGame(game) {
@@ -64,7 +66,18 @@ class Game {
     );
   }
 
+  addPoints(points) {
+    this.score += points;
+    this.updateScore();
+  }
+
+  updateScore() {
+    document.getElementById("score").innerHTML = this.score;
+  }
+
+  updateLevel() {
+    document.getElementById("level").innerHTML = this.level + 1;
+  }
 }
 
 export default Game;
-

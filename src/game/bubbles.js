@@ -106,7 +106,7 @@ class Bubble {
     let matchingBubbles = bubble.findMatchingBubbles(bubble, bubblesAround);
 
     if (matchingBubbles.length > 0) {
-      let keepSearching = true;
+      var keepSearching = true;
       while (keepSearching) {
         for (let i = 0; i < matchingBubbles.length; i++) {
           let bubblesToCheck = matchingBubbles[i].bubbleArea(
@@ -131,6 +131,7 @@ class Bubble {
     }
     if (matchingBubbles.length > 1) {
       game.newBubble.removeBubbles(matchingBubbles, game);
+      game.addPoints((matchingBubbles.length + 1) * game.points);
       game.newBubble.removeFloats(game);
       game.addBubble(game);
     } else {
@@ -169,6 +170,7 @@ class Bubble {
         }
       });
       if (endLine > 30) {
+        game.addPoints(bubbleGroup.length * game.points * 2);
         game.newBubble.removeBubbles(bubbleGroup, game);
       }
     });
@@ -222,12 +224,12 @@ class Bubble {
 
     let bubblesAround = game.newBubble.bubbleArea(game);
     if (bubble.posY > 30 && bubblesAround.length == 0) {
-      bubble.posY = originalY - 2;
       if (bubble.angle > -180) {
         bubble.posX = originalX + 2;
       } else {
         bubble.posX = originalX - 2;
       }
+      bubble.posY = originalY - 2;
       bubble.vel = prevVelocity;
       let correctAngle = ((this.angle - 90) * Math.PI) / 180;
       this.posX += this.vel * Math.cos(correctAngle);

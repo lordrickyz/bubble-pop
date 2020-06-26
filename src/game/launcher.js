@@ -1,3 +1,4 @@
+import { shootSound } from "./sound";
 const marginBottom = 40;
 
 class Launcher {
@@ -39,9 +40,8 @@ class Launcher {
 
   shoot(game) {
     game.newBubble.angle = game.launcher.angle;
-    if (game.newBubble.vel === 0) {
-      game.newBubble.vel = -25;
-    }
+    game.newBubble.vel = -25;
+    shootSound.play();
   };
 
 };

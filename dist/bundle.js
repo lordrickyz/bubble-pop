@@ -127,6 +127,9 @@ class Board {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _sound__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sound */ "./src/game/sound.js");
+
+
 // [Blue, Green, Yellow, Orange, Red]
 const COLORS = ["#0000ff", "#00ff00", "#ffff00", "#ff8000", "#ff0000"];
 
@@ -217,6 +220,7 @@ class Bubble {
     bubblesToRemove.forEach((bubble) => {
       let i = game.topBubbles.indexOf(bubble);
       game.topBubbles.splice(i, 1);
+      _sound__WEBPACK_IMPORTED_MODULE_0__["popSound"].play();
     });
   }
 
@@ -944,6 +948,8 @@ class GameView {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _sound__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sound */ "./src/game/sound.js");
+
 const marginBottom = 40;
 
 class Launcher {
@@ -985,9 +991,8 @@ class Launcher {
 
   shoot(game) {
     game.newBubble.angle = game.launcher.angle;
-    if (game.newBubble.vel === 0) {
-      game.newBubble.vel = -25;
-    }
+    game.newBubble.vel = -25;
+    _sound__WEBPACK_IMPORTED_MODULE_0__["shootSound"].play();
   };
 
 };
@@ -1142,6 +1147,28 @@ const levelClone = [
     new _bubbles__WEBPACK_IMPORTED_MODULE_0__["default"](450, 30 + rowDistance * 4, green),
   ],
 ];
+
+/***/ }),
+
+/***/ "./src/game/sound.js":
+/*!***************************!*\
+  !*** ./src/game/sound.js ***!
+  \***************************/
+/*! exports provided: popSound, shootSound */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "popSound", function() { return popSound; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shootSound", function() { return shootSound; });
+
+const popSound = new Audio("../../dist/audio/poppinSmith.mp3");
+//Credit to Eric Smith
+
+const shootSound = new Audio("../../dist/audio/bubbleShoot.mp3");
+
+// export const popSound = new Audio("");
+// export const popSound = new Audio("");
 
 /***/ }),
 

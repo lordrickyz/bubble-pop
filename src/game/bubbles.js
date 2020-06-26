@@ -44,15 +44,15 @@ class Bubble {
 
     if (this.bounceBubble(game)) {
       this.angle = -game.newBubble.angle;
-      this.posX += this.vel * Math.cos(bounceAngle);
       this.posY += this.vel * Math.sin(fireAngle);
+      this.posX += this.vel * Math.cos(bounceAngle);
     } else if (this.stopBubble(game)) {
       let prevVelocity = this.vel;
       this.vel = 0;
       this.setBubble(this, game, prevVelocity);
     } else {
-      this.posX += this.vel * Math.cos(fireAngle);
       this.posY += this.vel * Math.sin(fireAngle);
+      this.posX += this.vel * Math.cos(fireAngle);
     }
   }
 
@@ -91,7 +91,7 @@ class Bubble {
     });
   }
 
-  findMatchingBubbles(bubble, arr) {
+  matchingBubbles(bubble, arr) {
     let matchingBubbles = arr.filter((bubbleChecked) => {
       if (bubbleChecked.color == bubble.color) {
         return bubbleChecked;
@@ -100,20 +100,20 @@ class Bubble {
     return matchingBubbles;
   }
 
-  checkBubblesRemoval(game, bubble) {
+  checkBubblesToRemove(game, bubble) {
     let bubblesAround = bubble.bubbleArea(game);
 
-    let matchingBubbles = bubble.findMatchingBubbles(bubble, bubblesAround);
+    let matchingBubbles = bubble.matchingBubbles(bubble, bubblesAround);
 
     if (matchingBubbles.length > 0) {
-      var keepSearching = true;
-      while (keepSearching) {
+      let notFound = false;
+      while (!notFound) {
         for (let i = 0; i < matchingBubbles.length; i++) {
           let bubblesToCheck = matchingBubbles[i].bubbleArea(
             game,
             matchingBubbles[i]
           );
-          bubblesToCheck = bubble.findMatchingBubbles(bubble, bubblesToCheck);
+          bubblesToCheck = bubble.matchingBubbles(bubble, bubblesToCheck);
           bubblesToCheck.forEach((bubbleChecked) => {
             let addToMatchingbubbles = [];
             if (!matchingBubbles.includes(bubbleChecked)) {
@@ -123,7 +123,7 @@ class Bubble {
               matchingBubbles.push(e);
             });
             if (addToMatchingbubbles.length == 0) {
-              keepSearching = false;
+              notFound = true;
             }
           });
         }
@@ -133,6 +133,9 @@ class Bubble {
       game.newBubble.removeBubbles(matchingBubbles, game);
       game.addPoints((matchingBubbles.length + 1) * game.points);
       game.newBubble.removeFloats(game);
+      if (game.topBubbles.length === 0) {
+        game.nextLevel();
+      }
       game.addBubble(game);
     } else {
       game.topBubbles.push(game.newBubble);
@@ -241,7 +244,7 @@ class Bubble {
       if (this.posY > game.board.bottomBarrier - this.radius) {
         game.gameOver();
       }
-      this.checkBubblesRemoval(game, bubble);
+      this.checkBubblesToRemove(game, bubble);
     }
   }
 }

@@ -10,7 +10,42 @@
   </head>
 
   <body>
-    <canvas id="canvas" width="480" height="700"></canvas>
-    </div>
+    <section class="header"> 
+      <div id="nameContainer" class="nav navName"> <h1>Ricky Zheng</h1></div>
+      <div id="titleContainer" class="nav navTitle"> <h1>Bubble Pop</h1> </div>
+      <div id="linksContainer" class="nav navLinks"> 
+        <a href="https://github.com/lordrickyz/bubble-pop">
+          <img src="./dist/images/github-logo.svg" alt="Github">
+        </a>
+        <a href="https://www.linkedin.com/in/rickyzhengs/">
+          <img src="./dist/images/linkedin-logo.svg" alt="Linkedin">
+        </a>
+        <a href="">
+          <img src="./dist/images/profile-logo.svg" alt="Profile">
+        </a>
+      </div>
+    </section>
+    <section class="bodyColor">
+      <canvas id="canvas" width="480" height="700"></canvas>
+
+      <div id="controlsContainer" class="bubble control">
+        <h2>CONTROLS</h2>
+        <span id="control">Rotate Launcher</span>
+        <img src="./dist/images/leftctrl.png" alt="leftctrl" class="ctrl left">
+        <img src="./dist/images/rightctrl.png" alt="rightctrl" class="ctrl right">
+        <span id="control">Shoot Bubbles</span>
+        <img src="./dist/images/spacebar.png" alt="spacebar" class="spacebar">
+      </div>
+      <div id="scoreContainer" class="bubble score">
+
+      <div id="levelContainer" class="bubble level">
+        <h2>LEVEL</h2>
+        <span id="level">1</span>
+      </div>
+      <div id="scoreContainer" class="bubble score">
+        <h2>SCORE</h2>
+        <span id="score">0</span>
+      </div>
+    </section>
   </body>
 </html>

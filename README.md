@@ -14,8 +14,8 @@ The Game:
 * Pointer can shoot out randomized set of bubbles
 * Players can control the pointer in left and right motion. [ A / D & Left / Right Arrow Keys ]
 * Bubbles bounce off the walls
-* Leaderboard
-* Music And Sprites Addition
+* Scores
+* Music And Bubble Sprites
 
 The Page:
 * Links to Github & Personal Page
@@ -36,23 +36,26 @@ The Page:
 ## Implementation Timeline
 
 ### Day 1
-* Plan and Write General Game Logic
-* Implement Collision of Bubbles Logic
+* Explore General Game Logic
+* Plan and Write Out Launcher
+* Keymap Bindings to Pointer
 * Render Simple Canvas for Bubbles and Pointer
 
 ### Day 2
 * Continue on General Game Logic
-* Implement Scoring Function and Logic
-* Keymap Bindings to Pointer
+* Implement Collision of Bubbles Logic
+* Disappear Bubbles if Floating Alone
+* Stick Bubbles to Top of Borders
 
 ### Day 3
 * Continue on General Game Logic
-* Page Styling and Polishing
-* Implement Leaderboard Logic
+* Implement Scoring Function and Logic
+* Restart and Start Game Buttons
 
 ### Day 4
 * Complete General Game Logic
 * Add Toggle-able Game Music
+* Page Styling and Polishing
 
 
 ### Bonus Feature

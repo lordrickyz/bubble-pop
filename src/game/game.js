@@ -16,7 +16,6 @@ class Game {
     this.level = 0;
     this.points = 10;
     this.colorsLeft = bubbleColors.slice(0);
-
   }
 
   renderGame(game) {

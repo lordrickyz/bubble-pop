@@ -90,6 +90,7 @@ class Bubble {
     bubblesToRemove.forEach((bubble) => {
       let i = game.topBubbles.indexOf(bubble);
       game.topBubbles.splice(i, 1);
+      popSound.crossOrigin = "anonymous";
       popSound.play();
     });
   }

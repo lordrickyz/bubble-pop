@@ -220,6 +220,7 @@ class Bubble {
     bubblesToRemove.forEach((bubble) => {
       let i = game.topBubbles.indexOf(bubble);
       game.topBubbles.splice(i, 1);
+      _sound__WEBPACK_IMPORTED_MODULE_0__["popSound"].crossOrigin = "anonymous";
       _sound__WEBPACK_IMPORTED_MODULE_0__["popSound"].play();
     });
   }
@@ -992,6 +993,7 @@ class Launcher {
   shoot(game) {
     game.newBubble.angle = game.launcher.angle;
     game.newBubble.vel = -25;
+    _sound__WEBPACK_IMPORTED_MODULE_0__["shootSound"].crossOrigin = "anonymous";
     _sound__WEBPACK_IMPORTED_MODULE_0__["shootSound"].play();
   };
 
@@ -1163,9 +1165,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "shootSound", function() { return shootSound; });
 
 const popSound = new Audio("../../dist/audio/poppinSmith.mp3");
+popSound.crossOrigin = "anonymous";
 //Credit to Eric Smith
 
 const shootSound = new Audio("../../dist/audio/bubbleShoot.mp3");
+shootSound.crossOrigin = "anonymous";
 
 // export const popSound = new Audio("");
 // export const popSound = new Audio("");

@@ -41,6 +41,7 @@ class Launcher {
   shoot(game) {
     game.newBubble.angle = game.launcher.angle;
     game.newBubble.vel = -25;
+    shootSound.crossOrigin = "anonymous";
     shootSound.play();
   };
 

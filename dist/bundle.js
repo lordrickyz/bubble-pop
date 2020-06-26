@@ -439,12 +439,12 @@ class Game {
 
   gameOver() {
     window.alert("YOU LOST -> GAME OVER!");
-    this.restartGame();
+    location.reload();
   }
 
   gameWin() {
     window.alert("YOU WIN")
-    this.restartGame();
+    location.reload();
   }
   
 

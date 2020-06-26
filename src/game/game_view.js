@@ -1,5 +1,4 @@
-const Game = require("./game.js");
-const Launcher = require("./launcher.js");
+import Game from "./game.js";
 const key = require("./keymaster.js");
 
 class GameView {
@@ -9,30 +8,28 @@ class GameView {
   }
 
   start() {
-    const that = this
+    const that = this;
     this.bindKeyHandlers();
-    setInterval(function() {
-        that.game.draw(that);
-        that.game.renderGame(that)
-        // that.game.launcher.draw(that);
-        // that.game.newBubble.renderBubble(that);
-    }, 60);
+    window.requestAnimationFrame(() => {
+      that.game.renderGame(that.game)
+    })
   }
 
   bindKeyHandlers() {
     const that = this;
     key("a", function () {
-      that.game.launcher.rotate(-2.5);
+      that.game.launcher.rotate(-3.5);
+    });
+    key("left", function () {
+      that.game.launcher.rotate(-3.5);
+    });
+    key("right", function () {
+      that.game.launcher.rotate(3.5);
     });
     key("d", function () {
-      that.game.launcher.rotate(2.5);
-    });
-    key("space", function () {
-      // console.log(that.game)
-      that.game.launcher.fireBubble(that);
+      that.game.launcher.rotate(3.5);
     });
   }
-
 }
 
-module.exports = GameView;
+export default GameView;

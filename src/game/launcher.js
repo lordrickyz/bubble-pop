@@ -1,44 +1,42 @@
-const bottom = 250;
+const marginBottom = 40;
 
 class Launcher {
-  constructor() {
+  constructor(board) {
     this.angle = 180;
     this.width = 16;
     this.height = 100;
-    this.posX = document.getElementById("canvas").getAttribute("width") / 2;
-    this.posY = document.getElementById("canvas").getAttribute("height") - bottom;
-  };
+    this.posX = board.width / 2;
+    this.posY = board.height - marginBottom;
+  }
 
-
-  draw(view) {
-    view.ctx.fillStyle = "#324142";
-    view.ctx.save();
-    view.ctx.translate(this.posX, this.posY);
-    view.ctx.rotate((Math.PI / 180) * this.angle);
-    view.ctx.fillRect(-this.width / 2, 0, this.width, this.height);
-    view.ctx.restore();
-    view.ctx.beginPath();
-    view.ctx.arc(this.posX, this.posY, 40, 0, 2 * Math.PI);
-    view.ctx.fill();
-  };
+  renderLauncher(board) {
+    board.ctx.fillStyle = "#324142";
+    board.ctx.save();
+    board.ctx.translate(this.posX, this.posY);
+    board.ctx.rotate((Math.PI / 180) * this.angle);
+    board.ctx.fillRect(-this.width / 2, 0, this.width, this.height);
+    board.ctx.restore();
+    board.ctx.beginPath();
+    board.ctx.arc(
+      board.width / 2,
+      board.height - marginBottom,
+      40,
+      0,
+      2 * Math.PI
+    );
+    board.ctx.fill();
+  }
 
   rotate(direction) {
-    if (this.angle > 105 && this.angle < 260) {
+    if (this.angle > 105 && this.angle < 253) {
       this.angle += direction;
     } else if (this.angle <= 105) {
       this.angle = 106;
     } else {
-      this.angle = 259;
+      this.angle = 252;
     }
   };
 
-  fireBubble(view) {
-    const newbubble = view.game.newBubble;
-    console.log(newbubble);
-    newbubble.speed = -25;
-    newbubble.angle = this.angle;
-  }
-  
-}
+};
 
-module.exports = Launcher;
+export default Launcher;

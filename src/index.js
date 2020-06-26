@@ -1,5 +1,4 @@
-// const Game = require("./game/game");
-const GameView = require("./game/game_view");
+import GameView from "./game/game_view";
 
 document.onkeypress = function (e) {
   e = e || window.event;

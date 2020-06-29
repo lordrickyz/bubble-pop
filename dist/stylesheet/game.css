@@ -208,4 +208,19 @@ body{
 
 #music {
   outline: none;
+  position: absolute;
+  border: none;
+  z-index: 103;
+  background-color: transparent;
+  margin-top: 680px;
+  margin-left: 120px;
+}
+
+#music:hover {
+  cursor: pointer;
+}
+
+#volumeIcon {
+  background-color:transparent;
+  filter: invert(100%);
 }

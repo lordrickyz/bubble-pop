@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="./dist/bundle.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./dist/stylesheet/game.css">
     <link rel='icon' href='./favicon.ico' type='image/x-icon' />
@@ -53,8 +54,8 @@
         <span id="score">0</span>
       </div>
 
+      <button id="music" onkeyup="event.preventDefault()"><img id="volumeIcon" src="https://github.com/lordrickyz/bubble-pop/blob/master/dist/images/volumeUp.svg" width="100" height="72" /></button>
     </section>
-    <button id="music" onkeyup="event.preventDefault()">Mute Music</button>
 
     <audio id="shootBubble" src="./dist/audio/bubbleShoot.mp3"></audio>
     <audio id="popBubble" src="./dist/audio/poppinSmith.mp3"></audio>

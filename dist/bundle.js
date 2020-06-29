@@ -595,13 +595,16 @@ class GameView {
   }
 
   toggleMusic() {
-    let audio = document.getElementById("bustaMove");
     if (audio.muted) {
-      audio.muted = false;
-      document.getElementById("music").innerHTML = "Mute Music"
+      document.getElementById("bustaMove").muted = false;
+      document.getElementById("shootBubble").muted = false;
+      document.getElementById("popBubble").muted = false;
+      document.getElementById("audioIcon").setAttribute("src", "https://github.com/lordrickyz/bubble-pop/blob/master/dist/images/volumeUp.svg")
     } else {
-      audio.muted = true;
-      document.getElementById("music").innerHTML = "Unmute Music"
+      document.getElementById("bustaMove").muted = true;
+      document.getElementById("shootBubble").muted = true;
+      document.getElementById("popBubble").muted = true;
+      document.getElementById("audioIcon").setAttribute("src", "https://github.com/lordrickyz/bubble-pop/blob/master/dist/images/volumeMute.svg")
     }
   }
 

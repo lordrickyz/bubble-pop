@@ -105,16 +105,31 @@ class Board {
 
   renderBoard() {
     this.ctx.save();
-    this.ctx.fillStyle = "#f2f4f4";
+    this.ctx.fillStyle = "rgb(228, 228, 228)";
     this.ctx.fillRect(0, 0, this.width, this.height);
-    this.ctx.fillStyle = "#85a5af";
+    this.ctx.fillStyle = "rgb(74, 125, 167)";
     this.ctx.fillRect(0, this.bottomBarrier, this.width, 5);
     this.ctx.restore();
   }
+
+  renderStartBoard() {
+    this.ctx.save();
+    this.ctx.fillStyle = "rgb(228, 228, 228)";
+    this.ctx.fillRect(0, 0, this.width, this.height);
+    this.ctx.restore();
+
+  }
+
+
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Board);
 
+// var img = new Image();
+// img.onload = function () {
+//   this.ctx.drawImage(img, 20, 20);
+// };
+// img.src = 'https://mangadex.org/images/avatars/373134.gif';
 
 /***/ }),
 
@@ -421,12 +436,20 @@ class Game {
     this.colorsLeft = _levels__WEBPACK_IMPORTED_MODULE_3__["bubbleColors"].slice(0);
   }
 
+  startBoard(game) {
+    game.board.ctx.clearRect(0, 0, game.board.width, game.board.height);
+    game.board.renderStartBoard();
+
+  }
+
   renderGame(game) {
     game.board.ctx.clearRect(0, 0, game.board.width, game.board.height);
     game.board.renderBoard();
     game.launcher.renderLauncher(game.board);
     game.renderTopBubbles(this);
     game.newBubble.renderBubble(game);
+    document.getElementById("bustaMove").play();
+    document.getElementById("bustaMove").volume = 0.3;
     window.requestAnimationFrame(() => {
       game.renderGame(game);
     });
@@ -550,10 +573,19 @@ class GameView {
   start() {
     const that = this;
     this.bindKeyHandlers();
-    that.game.startGame();
-    window.requestAnimationFrame(() => {
-      that.game.renderGame(that.game)
+    that.game.startBoard(that.game);
+    document.getElementById("cuteDino").addEventListener("click", () => {
+      this.eventListener()
     })
+    document.getElementById("start").addEventListener("click", () => {
+      this.eventListener()
+    })  }
+
+  eventListener() {
+    document.getElementById("start").style.display = "none"
+    document.getElementById("cuteDino").style.display = "none"
+    this.game.startGame();
+    this.game.renderGame(this.game)
   }
 
   bindKeyHandlers() {

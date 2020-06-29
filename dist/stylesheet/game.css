@@ -109,10 +109,12 @@ body{
   color: white;
 }
 
+
 .control {
   border: 10px solid rgb(74, 125, 167);
   padding: 0px 40px 20px 40px;
-  position: absolute;
+  /* position: absolute; */
+  /* z-index: 99; */
   margin-left: 30px;
   margin-top: 290px;
   /* text-align: right; */
@@ -124,7 +126,6 @@ body{
 /* CONTROLS */
 
 #control {
-
   display: block;
   font-size: 30px;
 }
@@ -141,3 +142,54 @@ body{
   padding: 10px;
 }
 
+/* Start Menu */
+#start {
+  background-color: rgb(228, 228, 228);
+  margin-top: 240px;
+  margin-left: -470px;
+  font-size: 45px;;
+  border: none;
+  padding: 40px;
+  color: rgb(74, 125, 167);
+  background: transparent;
+  font-family: 'Fredoka One', cursive;
+  position: absolute;
+  border: none;
+  z-index: 101;
+  outline: none;
+  animation: pulsate 3s ease-out;
+  animation-iteration-count: infinite; 
+  opacity: 0.5;
+}
+
+#start:hover{
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+@keyframes pulsate {
+    0% { 
+        opacity: 0.5;
+    }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0.5;
+    }
+}
+
+/* cute dino */
+#cuteDino {
+  position: absolute;
+  z-index: 102;
+  margin-top: 450px;
+  margin-left: -360px;
+}
+
+#cuteDino:hover {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}

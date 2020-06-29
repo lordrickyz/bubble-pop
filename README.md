@@ -12,7 +12,7 @@ At the start of each round, the gamespace will contain prearranged patterns of c
 
 ## GamePlay:
 
-![gameplay](https://i.imgur.com/d8asr31.gif)
+<img src="./dist/preview/bubbleLink.gif?raw=true" width="1000px">
 
 ## Architecture and Technology
 

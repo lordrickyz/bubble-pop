@@ -33,6 +33,7 @@ class Game {
     document.getElementById("shootBubble").muted = false;
     document.getElementById("bustaMove").play();
     document.getElementById("bustaMove").volume = 0.3;
+    document.getElementById("bustaMove").loop = true;
     window.requestAnimationFrame(() => {
       game.renderGame(game);
     });

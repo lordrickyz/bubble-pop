@@ -4,15 +4,15 @@ body{
   text-align: center;
   font-family: sans-serif;
   background-color: rgb(25, 41, 54);
-  background-image: url(../images/bubbleBG.png)
-
+  background-image: url(../images/bubbleBG.png);
 }
 
 /* NavBar */
 .header {
-  /* padding-bottom: px; */
   border-bottom: 1px solid black;
   background-color: rgb(74, 125, 167);
+  /* height: 100px; */
+  overflow: hidden;
 }
 
 .navName {

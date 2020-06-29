@@ -124,12 +124,6 @@ class Board {
 
 /* harmony default export */ __webpack_exports__["default"] = (Board);
 
-// var img = new Image();
-// img.onload = function () {
-//   this.ctx.drawImage(img, 20, 20);
-// };
-// img.src = 'https://mangadex.org/images/avatars/373134.gif';
-
 /***/ }),
 
 /***/ "./src/game/bubbles.js":
@@ -151,8 +145,8 @@ class Bubble {
     this.posX = posX;
     this.posY = posY;
     this.color = color;
-    this.radius = 30;
     this.vel = 0;
+    this.radius = 30;
     this.angle = 0;
   }
 
@@ -184,8 +178,8 @@ class Bubble {
   }
 
   updatePosition(game) {
-    let fireAngle = ((this.angle - 90) * Math.PI) / 180;
     let bounceAngle = ((this.angle + 90) * Math.PI) / 180;
+    let fireAngle = ((this.angle - 90) * Math.PI) / 180;
 
     if (this.bounceBubble(game)) {
       this.angle = -game.newBubble.angle;
@@ -360,6 +354,7 @@ class Bubble {
     bubble.setYPos(bubble, bubbleDistanceY, bubbleRow);
     bubble.setXPos(bubble, bubbleRow);
 
+    // Snaps Bubbles to empty position if collide
     for (let i = 0; i < game.topBubbles.length; i++) {
       if (
         bubble.posX == game.topBubbles[i].posX &&
@@ -373,6 +368,7 @@ class Bubble {
       }
     }
 
+    //checks if the surrounding of bubble is occupied.
     let bubblesAround = game.newBubble.bubbleArea(game);
     if (bubble.posY > 30 && bubblesAround.length == 0) {
       if (bubble.angle > -180) {
@@ -388,6 +384,7 @@ class Bubble {
       settled = true;
     }
 
+    //did bubbles cross the bottom line?
     if (!settled) {
       if (this.posY > game.board.bottomBarrier - this.radius) {
         game.gameOver();

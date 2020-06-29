@@ -26,9 +26,3 @@ class Board {
 }
 
 export default Board;
-
-// var img = new Image();
-// img.onload = function () {
-//   this.ctx.drawImage(img, 20, 20);
-// };
-// img.src = 'https://mangadex.org/images/avatars/373134.gif';

@@ -439,7 +439,7 @@ class Game {
   startBoard(game) {
     game.board.ctx.clearRect(0, 0, game.board.width, game.board.height);
     game.board.renderStartBoard();
-
+    document.getElementById("shootBubble").muted = true;
   }
 
   renderGame(game) {
@@ -448,6 +448,7 @@ class Game {
     game.launcher.renderLauncher(game.board);
     game.renderTopBubbles(this);
     game.newBubble.renderBubble(game);
+    document.getElementById("shootBubble").muted = false;
     document.getElementById("bustaMove").play();
     document.getElementById("bustaMove").volume = 0.3;
     window.requestAnimationFrame(() => {
@@ -579,7 +580,11 @@ class GameView {
     })
     document.getElementById("start").addEventListener("click", () => {
       this.eventListener()
-    })  }
+    })  
+    document.getElementById("music").addEventListener("click", () => {
+      this.toggleMusic();
+    })
+  }
 
   eventListener() {
     document.getElementById("start").style.display = "none"
@@ -587,6 +592,19 @@ class GameView {
     this.game.startGame();
     this.game.renderGame(this.game)
   }
+
+  toggleMusic() {
+    let audio = document.getElementById("bustaMove");
+    if (audio.muted) {
+      audio.muted = false;
+      document.getElementById("music").innerHTML = "Mute Music"
+    } else {
+      audio.muted = true;
+      document.getElementById("music").innerHTML = "Unmute Music"
+    }
+  }
+
+
 
   bindKeyHandlers() {
     const that = this;

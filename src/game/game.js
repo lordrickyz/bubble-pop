@@ -18,12 +18,20 @@ class Game {
     this.colorsLeft = bubbleColors.slice(0);
   }
 
+  startBoard(game) {
+    game.board.ctx.clearRect(0, 0, game.board.width, game.board.height);
+    game.board.renderStartBoard();
+
+  }
+
   renderGame(game) {
     game.board.ctx.clearRect(0, 0, game.board.width, game.board.height);
     game.board.renderBoard();
     game.launcher.renderLauncher(game.board);
     game.renderTopBubbles(this);
     game.newBubble.renderBubble(game);
+    document.getElementById("bustaMove").play();
+    document.getElementById("bustaMove").volume = 0.3;
     window.requestAnimationFrame(() => {
       game.renderGame(game);
     });

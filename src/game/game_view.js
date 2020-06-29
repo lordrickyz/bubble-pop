@@ -10,10 +10,19 @@ class GameView {
   start() {
     const that = this;
     this.bindKeyHandlers();
-    that.game.startGame();
-    window.requestAnimationFrame(() => {
-      that.game.renderGame(that.game)
+    that.game.startBoard(that.game);
+    document.getElementById("cuteDino").addEventListener("click", () => {
+      this.eventListener()
     })
+    document.getElementById("start").addEventListener("click", () => {
+      this.eventListener()
+    })  }
+
+  eventListener() {
+    document.getElementById("start").style.display = "none"
+    document.getElementById("cuteDino").style.display = "none"
+    this.game.startGame();
+    this.game.renderGame(this.game)
   }
 
   bindKeyHandlers() {

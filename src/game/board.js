@@ -8,12 +8,28 @@ class Board {
 
   renderBoard() {
     this.ctx.save();
-    this.ctx.fillStyle = "#f2f4f4";
+    this.ctx.fillStyle = "rgb(228, 228, 228)";
     this.ctx.fillRect(0, 0, this.width, this.height);
-    this.ctx.fillStyle = "#85a5af";
+    this.ctx.fillStyle = "rgb(74, 125, 167)";
     this.ctx.fillRect(0, this.bottomBarrier, this.width, 5);
     this.ctx.restore();
   }
+
+  renderStartBoard() {
+    this.ctx.save();
+    this.ctx.fillStyle = "rgb(228, 228, 228)";
+    this.ctx.fillRect(0, 0, this.width, this.height);
+    this.ctx.restore();
+
+  }
+
+
 }
 
 export default Board;
+
+// var img = new Image();
+// img.onload = function () {
+//   this.ctx.drawImage(img, 20, 20);
+// };
+// img.src = 'https://mangadex.org/images/avatars/373134.gif';

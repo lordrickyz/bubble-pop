@@ -193,3 +193,10 @@ body{
   border: none;
   outline: none;
 }
+
+
+/* Mute Btn */
+
+#music {
+  outline: none;
+}

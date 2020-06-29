@@ -16,7 +16,11 @@ class GameView {
     })
     document.getElementById("start").addEventListener("click", () => {
       this.eventListener()
-    })  }
+    })  
+    document.getElementById("music").addEventListener("click", () => {
+      this.toggleMusic();
+    })
+  }
 
   eventListener() {
     document.getElementById("start").style.display = "none"
@@ -24,6 +28,19 @@ class GameView {
     this.game.startGame();
     this.game.renderGame(this.game)
   }
+
+  toggleMusic() {
+    let audio = document.getElementById("bustaMove");
+    if (audio.muted) {
+      audio.muted = false;
+      document.getElementById("music").innerHTML = "Mute Music"
+    } else {
+      audio.muted = true;
+      document.getElementById("music").innerHTML = "Unmute Music"
+    }
+  }
+
+
 
   bindKeyHandlers() {
     const that = this;

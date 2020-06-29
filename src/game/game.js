@@ -21,7 +21,7 @@ class Game {
   startBoard(game) {
     game.board.ctx.clearRect(0, 0, game.board.width, game.board.height);
     game.board.renderStartBoard();
-
+    document.getElementById("shootBubble").muted = true;
   }
 
   renderGame(game) {
@@ -30,6 +30,7 @@ class Game {
     game.launcher.renderLauncher(game.board);
     game.renderTopBubbles(this);
     game.newBubble.renderBubble(game);
+    document.getElementById("shootBubble").muted = false;
     document.getElementById("bustaMove").play();
     document.getElementById("bustaMove").volume = 0.3;
     window.requestAnimationFrame(() => {

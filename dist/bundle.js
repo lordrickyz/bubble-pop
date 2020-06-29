@@ -117,7 +117,6 @@ class Board {
     this.ctx.fillStyle = "rgb(228, 228, 228)";
     this.ctx.fillRect(0, 0, this.width, this.height);
     this.ctx.restore();
-
   }
 
 

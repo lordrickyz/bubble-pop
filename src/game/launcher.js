@@ -41,9 +41,10 @@ class Launcher {
   shoot(game) {
     game.newBubble.angle = game.launcher.angle;
     game.newBubble.vel = -25;
-    // shootSound.crossOrigin = "anonymous";
-    // shootSound.play();
-    document.getElementById("shootBubble").play();
+    let shotVolume = document.getElementById("shootBubble")
+    if (shotVolume.muted === false) {
+      shotVolume.play();
+    }
   };
 
 };

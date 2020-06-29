@@ -33,16 +33,7 @@
 
       <button id="start" class="btn start-btn">Click Me To Play</button>
 
-      <img id="cuteDino" src="https://mangadex.org/images/avatars/373134.gif" width="200" height="162"/>
-
-      <div id="controlsContainer" class="bubble control">
-        <h2>CONTROLS</h2>
-        <span id="control">Rotate Launcher</span>
-        <img src="./dist/images/leftctrl.png" alt="leftctrl" class="ctrl left">
-        <img src="./dist/images/rightctrl.png" alt="rightctrl" class="ctrl right">
-        <span id="control">Shoot Bubbles</span>
-        <img src="./dist/images/spacebar.png" alt="spacebar" class="spacebar">
-      </div>
+      <img id="cuteDino" src="https://mangadex.org/images/avatars/373134.gif" width="200" height="162"/>      
       <div id="scoreContainer" class="bubble score">
 
       <div id="levelContainer" class="bubble level">
@@ -54,7 +45,19 @@
         <span id="score">0</span>
       </div>
 
-      <button id="music" onkeyup="event.preventDefault()"><img id="volumeIcon" src="https://github.com/lordrickyz/bubble-pop/blob/master/dist/images/volumeUp.svg" width="100" height="72" /></button>
+      <button id="music" onkeyup="event.preventDefault()"><img id="volumeIcon" src="dist/images/volumeUp.svg" width="90" height="60" /></button>
+      
+      <div id="controlsContainer" class="control">
+        <h2>CONTROLS</h2>
+        <span id="control">Rotate Launcher</span>
+        <img src="./dist/images/leftctrl.png" alt="leftctrl" class="ctrl left">
+        <img src="./dist/images/rightctrl.png" alt="rightctrl" class="ctrl right">
+        <span id="control">Shoot Bubbles</span>
+        <img src="./dist/images/spacebar.png" alt="spacebar" class="spacebar">
+        <button id="resume-btn">RESUME</button>
+      </div>
+      
+      <button id="ctrl-btn">CONTROLS</button>
     </section>
 
     <audio id="shootBubble" src="./dist/audio/bubbleShoot.mp3"></audio>

@@ -16,6 +16,7 @@ class Game {
     this.level = 0;
     this.points = 10;
     this.colorsLeft = bubbleColors.slice(0);
+    this.started = false;
   }
 
   startBoard(game) {
@@ -25,12 +26,12 @@ class Game {
   }
 
   renderGame(game) {
+    this.start = true;
     game.board.ctx.clearRect(0, 0, game.board.width, game.board.height);
     game.board.renderBoard();
     game.launcher.renderLauncher(game.board);
     game.renderTopBubbles(this);
     game.newBubble.renderBubble(game);
-    document.getElementById("shootBubble").muted = false;
     document.getElementById("bustaMove").play();
     document.getElementById("bustaMove").volume = 0.3;
     document.getElementById("bustaMove").loop = true;
@@ -67,7 +68,6 @@ class Game {
     }
     this.colorsLeft = bubbleColors.slice(0);
     this.level += 1;
-    // let currentLevelLength = Levels[this.level].length;
     this.renderLevel();
     document.getElementById("level").innerHTML = (this.level + 1);
   }

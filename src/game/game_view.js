@@ -20,30 +20,75 @@ class GameView {
     document.getElementById("music").addEventListener("click", () => {
       this.toggleMusic();
     })
+
+    document.getElementById("ctrl-btn").addEventListener("click", () => {
+      this.toggleControl();
+    })
+
+    document.getElementById("resume-btn").addEventListener("click", () => {
+      this.toggleControl();
+    })
   }
 
   eventListener() {
     document.getElementById("start").style.display = "none"
     document.getElementById("cuteDino").style.display = "none"
+    document.getElementById("music").style.visibility = "visible";
+    document.getElementById("shootBubble").muted = false;
     this.game.startGame();
     this.game.renderGame(this.game)
+    this.game.started = true;
   }
 
   toggleMusic() {
+    let audio = document.getElementById("bustaMove")
     if (audio.muted) {
-      document.getElementById("bustaMove").muted = false;
+      audio.muted = false;
       document.getElementById("shootBubble").muted = false;
       document.getElementById("popBubble").muted = false;
-      document.getElementById("audioIcon").setAttribute("src", "https://github.com/lordrickyz/bubble-pop/blob/master/dist/images/volumeUp.svg")
+      document.getElementById("volumeIcon").setAttribute("src", "dist/images/volumeUp.svg")
     } else {
-      document.getElementById("bustaMove").muted = true;
+      audio.muted = true;
       document.getElementById("shootBubble").muted = true;
       document.getElementById("popBubble").muted = true;
-      document.getElementById("audioIcon").setAttribute("src", "https://github.com/lordrickyz/bubble-pop/blob/master/dist/images/volumeMute.svg")
+      document.getElementById("volumeIcon").setAttribute("src", "dist/images/volumeMute.svg")
     }
   }
 
+  toggleControl() {
+    let controlMenu = document.getElementById("controlsContainer")
+    let controlBtn = document.getElementById("ctrl-btn")
+    let that = this;
+    if (controlMenu.style.visibility === "hidden") {
+      key.unbind('space')
+      controlMenu.style.visibility = "visible";
+      controlBtn.style.visibility = "hidden"
+      this.stopBGM();
+      document.getElementById("volumeIcon").setAttribute("src", "dist/images/volumeMute.svg")
+    } else {
+      controlMenu.style.visibility = "hidden";
+      controlBtn.style.visibility = "visible"
+      this.startBGM();
+      key("space", function () {that.game.launcher.shoot(that.game);});
+      document.getElementById("volumeIcon").setAttribute("src", "dist/images/volumeUp.svg")
+    }
+  }
 
+  stopBGM(){
+    if (this.game.started) {
+      document.getElementById("bustaMove").muted = true;
+      document.getElementById("shootBubble").muted = true;
+      document.getElementById("popBubble").muted = true;
+    }
+  }
+
+  startBGM(){
+    if (this.game.started) {
+      document.getElementById("bustaMove").muted = false;
+      document.getElementById("shootBubble").muted = false;
+      document.getElementById("popBubble").muted = false;
+    }
+  }
 
   bindKeyHandlers() {
     const that = this;

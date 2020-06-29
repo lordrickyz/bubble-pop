@@ -18,8 +18,8 @@ At the start of each round, the gamespace will contain prearranged patterns of c
 
 * `HTML5 Canvas` for Game Rendering
 * `Vanilla JavaScript` for Game Logic
-* `Webpack` for bundling JS Files
-* `Keymaster` for Pointer Key Binding
+* `Webpack` for Bundling JS Files
+* `Keymaster` for Launcher Key Binding
 
 ## Code Snippets
 

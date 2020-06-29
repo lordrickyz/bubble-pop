@@ -63,7 +63,7 @@ for (let i = 0; i < game.topBubbles.length; i++) {
 ```
 
 
-## Features To Be Added In The Future
+## Features Directions
 * 2 Players Versus
 * Drop Bubbles When Bursts
 * Burst Bubbles

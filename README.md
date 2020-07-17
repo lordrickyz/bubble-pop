@@ -1,6 +1,6 @@
 # Bubble Pop
 
-##[<>Live Site<>](https://lordrickyz.github.io/bubble-pop/)
+## [<>Live Site<>](https://lordrickyz.github.io/bubble-pop/)
 
 ![SplashSite](https://lordrickyz.github.io/bubble-pop/dist/preview/smallPreview.png)
 

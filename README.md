@@ -1,6 +1,6 @@
 # Bubble Pop
 
-[Live Site](https://lordrickyz.github.io/bubble-pop/)
+##[<>Live Site<>](https://lordrickyz.github.io/bubble-pop/)
 
 ![SplashSite](https://lordrickyz.github.io/bubble-pop/dist/preview/smallPreview.png)
 
@@ -14,19 +14,23 @@ At the start of each round, the gamespace will contain prearranged patterns of c
 
 <img src="./dist/preview/bubbleLink.gif?raw=true" width="1000px">
 
+Users are able to control the launcher using the left arrow and right arrow keys. The spacebar is the launch button for the bubbles.
+
 ## Architecture and Technology
 
 * `HTML5 Canvas` for Game Rendering
 * `Vanilla JavaScript` for Game Logic
-* `Webpack` for Bundling JS Files
-* `Keymaster` for Launcher Key Binding
+* `Webpack` for Bundling JS Files - v4.43.0
+* `SASS` for Styling - v1.26.8
+* `Keymaster` for Launcher Key Binding - v1.6.3
 
-## Code Snippets
+## Features
+![Snap To Bubble Part 1](https://lordrickyz.github.io/bubble-pop/dist/preview/snapBubble.gif)
 
 In order to snap bubbles onto the board, the bubble must collide with another set bubble to allow calculations of distance and position.
 
 Using the bubbleArea function to check if surrounding the bubbles area includes any other bubbles. If it does, when the bubble is launched, as collision occurs, the position of the bubble will be shifted towards the closes empty position and snaps onto it.
-```
+```js
   let bubblesAround = game.newBubble.bubbleArea(game);
   if (bubble.posY > 30 && bubblesAround.length == 0) {
     if (bubble.angle > -180) {
@@ -43,8 +47,10 @@ Using the bubbleArea function to check if surrounding the bubbles area includes 
   }
 ```
 
+![Snap To Bubble Part 2](https://lordrickyz.github.io/bubble-pop/dist/preview/snapBubble2.gif)
+
 If the row is empty, the bubble will attach to where ever it goes in:
-```
+```js
 let originalX = bubble.posX;
 let originalY = bubble.posY;
 

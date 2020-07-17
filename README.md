@@ -25,7 +25,8 @@ Users are able to control the launcher using the left arrow and right arrow keys
 * `Keymaster` for Launcher Key Binding - v1.6.3
 
 ## Features
-![Snap To Bubble Part 1](https://lordrickyz.github.io/bubble-pop/dist/preview/snapBubble.gif)
+
+<img src="./dist/preview/snapBubble.gif?raw=true" width="1000px">
 
 In order to snap bubbles onto the board, the bubble must collide with another set bubble to allow calculations of distance and position.
 
@@ -47,7 +48,7 @@ Using the bubbleArea function to check if surrounding the bubbles area includes 
   }
 ```
 
-![Snap To Bubble Part 2](https://lordrickyz.github.io/bubble-pop/dist/preview/snapBubble2.gif)
+<img src="./dist/preview/snapBubble2.gif?raw=true" width="1000px">
 
 If the row is empty, the bubble will attach to where ever it goes in:
 ```js

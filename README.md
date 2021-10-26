@@ -70,7 +70,7 @@ for (let i = 0; i < game.topBubbles.length; i++) {
 ```
 
 
-## Features Directions
+## Future Directions
 * Mobile Support [React Native/Swift]
 * 2 Players Versus
 * Drop Bubbles When Bursts
